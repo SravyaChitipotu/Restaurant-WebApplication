@@ -21,8 +21,8 @@ label {
 }
       select {
         font-size:small;
-    width: 100px; /* Set the width as desired */
-    height: 25px; /* Set the height as desired */
+    width: 100px; 
+    height: 25px; 
   }
 
   select option {
@@ -163,7 +163,7 @@ $result = $database->select1($items);
   <option value="pasta">Pasta</option>
   <option value="biryani">Biryani</option>
   <option value="fries">Fries</option>
-  <!-- Add more options for other food categories -->
+  
 </select>
 
 
@@ -177,11 +177,11 @@ $result = $database->select1($items);
            <!-- <hr>  -->
            <div id="menu-container" class="row mt-5">
              <?php
-             // Get the selected category
+             
              $category = isset($_GET['category']) ? $_GET['category'] : 'all';
 
 
-    // Prepare the SQL query
+   
     if ($category === 'all') {
         $sql = "SELECT * FROM `menu`";
     } else {
@@ -268,24 +268,24 @@ $result = $database->select1($items);
 </div>
 <script>
  $(document).ready(function() {
-  // Handle category dropdown change event
+ 
   $("#category-dropdown").change(function() {
     filterMenu();
   });
 
-  // Function to filter the menu
+  
   function filterMenu() {
-    var selectedCategory = $("#category-dropdown").val(); // Get the selected category
+    var selectedCategory = $("#category-dropdown").val(); 
 
-    // Send an AJAX request to the server to get the filtered menu
+   
     $.ajax({
-      url: "filter_menu.php", // Replace with the correct URL to your server-side script
+      url: "filter_menu.php", 
       type: "GET",
       data: {
         category: selectedCategory
       },
       success: function(data) {
-        // Replace the menu with the filtered menu
+      
         $(".row#menu-container").html(data);
         <?php if (isset($_SESSION["username"])){?>
  $(document).ready(function() {
@@ -327,18 +327,18 @@ $result = $database->select1($items);
     }
 
     $.ajax({
-    url: "store_item_id.php", // Update the URL to the separate PHP file
+    url: "store_item_id.php", 
     type: "POST",
     data: { itemId: itemId ,
            timestamp: timestamp,
            deliveryLocation: deliveryLocation
           },
     success: function(response) {
-        // Handle the response if needed
+        
         console.log(response);
     },
     error: function(xhr, status, error) {
-        // Handle errors if any
+      
         console.error(error);
     }
 });
@@ -353,9 +353,9 @@ $result = $database->select1($items);
     $("#deliveryLocation").text(deliveryLocation);
     $("#orderModal").modal("show");
 
-  // Function to handle the modal close event
+ 
   $("#orderModal").on("hidden.bs.modal", function() {
-    // Reset the content after the modal is closed
+    
     $("#itemName").text("");
     $("#itemTime").text("");
     $("#timestamp").text("");
@@ -375,17 +375,17 @@ $result = $database->select1($items);
     var timestamp = currentDate.toISOString();
 
     $.ajax({
-    url: "store_item_id.php", // Update the URL to the separate PHP file
+    url: "store_item_id.php", 
     type: "POST",
     data: { itemId: itemId ,
            timestamp: timestamp
           },
     success: function(response) {
-        // Handle the response if needed
+       
         console.log(response);
     },
     error: function(xhr, status, error) {
-        // Handle errors if any
+       
         console.error(error);
     }
 });
@@ -397,9 +397,9 @@ $result = $database->select1($items);
     $("#orderModal").modal("show");
   });
 
-  // Function to handle the modal close event
+ 
   $("#orderModal").on("hidden.bs.modal", function() {
-    // Reset the content after the modal is closed
+   
     $("#itemName").text("");
     $("#itemTime").text("");
     $("#timestamp").text("");
@@ -416,41 +416,40 @@ $result = $database->select1($items);
 
 </script>
 <script>
-// Handle keyup event on the search box
-  // Handle keyup event on the search box
+
   $(document).ready(function() {
     $("#searchInput").keyup(function() {
       var searchText = $(this).val().toLowerCase();
 
-      // Loop through each card
+    
       $(".card").each(function() {
         var cardName = $(this).find("h3").text().toLowerCase();
 
-        // Check if the card name matches the search text
+       
         if (cardName.indexOf(searchText) !== -1) {
-          $(this).show(); // Display the card if it matches
+          $(this).show(); 
         } else {
-          $(this).hide(); // Hide the card if it doesn't match
+          $(this).hide(); 
         }
       });
 
-      // Reset the order of the cards
+     
       resetCardOrder();
     });
 
-    // Function to reset the order of the cards
+    
     function resetCardOrder() {
       var visibleCards = $(".card:visible");
       var hiddenCards = $(".card:hidden");
       
-      // Move the visible cards to the top of the row
+     
       visibleCards.each(function(index) {
         var columnIndex = index % 3;
         var targetColumn = $(".row").find(".col-md-4").eq(columnIndex);
         $(this).appendTo(targetColumn);
       });
 
-      // Move the hidden cards to the end of the row
+     
       hiddenCards.each(function(index) {
         var columnIndex = index % 3;
         var targetColumn = $(".row").find(".col-md-4").eq(columnIndex);
@@ -458,7 +457,7 @@ $result = $database->select1($items);
       });
     }
 
-    // Reset the order of the cards on page load
+   
     resetCardOrder();
   });
 
@@ -468,16 +467,16 @@ $result = $database->select1($items);
 
 <script>
 $(document).ready(function() {
-    // Handle category dropdown change event
+  
     $("#category-dropdown").change(function() {
         filterMenu();
     });
 
-    // Function to filter the menu
+   
     function filterMenu() {
-        var selectedCategory = $("#category-dropdown").val(); // Get the selected category
+        var selectedCategory = $("#category-dropdown").val(); 
 
-        // Send an AJAX request to the server to get the filtered menu
+       
         $.ajax({
             url: "your-php-file.php",
             type: "GET",
@@ -485,7 +484,7 @@ $(document).ready(function() {
                 category: selectedCategory
             },
             success: function(data) {
-                // Replace the menu with the filtered menu
+              
                 $(".menu-container").html(data);
             }
         });
@@ -537,18 +536,18 @@ $(document).ready(function() {
     }
 
     $.ajax({
-    url: "store_item_id.php", // Update the URL to the separate PHP file
+    url: "store_item_id.php",
     type: "POST",
     data: { itemId: itemId ,
            timestamp: timestamp,
            deliveryLocation: deliveryLocation
           },
     success: function(response) {
-        // Handle the response if needed
+      
         console.log(response);
     },
     error: function(xhr, status, error) {
-        // Handle errors if any
+      
         console.error(error);
     }
 });
@@ -563,9 +562,9 @@ $(document).ready(function() {
     $("#deliveryLocation").text(deliveryLocation);
     $("#orderModal").modal("show");
 
-  // Function to handle the modal close event
+  
   $("#orderModal").on("hidden.bs.modal", function() {
-    // Reset the content after the modal is closed
+  
     $("#itemName").text("");
     $("#itemTime").text("");
     $("#timestamp").text("");
@@ -585,17 +584,17 @@ $(document).ready(function() {
     var timestamp = currentDate.toISOString();
 
     $.ajax({
-    url: "store_item_id.php", // Update the URL to the separate PHP file
+    url: "store_item_id.php",
     type: "POST",
     data: { itemId: itemId ,
            timestamp: timestamp
           },
     success: function(response) {
-        // Handle the response if needed
+        
         console.log(response);
     },
     error: function(xhr, status, error) {
-        // Handle errors if any
+       
         console.error(error);
     }
 });
@@ -607,9 +606,9 @@ $(document).ready(function() {
     $("#orderModal").modal("show");
   });
 
-  // Function to handle the modal close event
+ 
   $("#orderModal").on("hidden.bs.modal", function() {
-    // Reset the content after the modal is closed
+    
     $("#itemName").text("");
     $("#itemTime").text("");
     $("#timestamp").text("");

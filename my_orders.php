@@ -62,7 +62,7 @@
   margin-top: 10px;
 }
 
-/* Adjust styles as needed */
+
 
 
     .display-6 {
@@ -198,7 +198,7 @@
           </div>
           
           <div class="order-button">
-            <!-- Order button or any other action -->
+            
           </div>
         </div>
       <!-- </div> -->
