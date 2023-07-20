@@ -2,10 +2,10 @@
 require_once 'user-registration/lib/DataSource.php';
 $database = new \Phppot\DataSource();
 
-// Get the selected category
+
 $category = $_GET['category'];
 
-// Prepare the SQL query
+
 if ($category === 'all') {
   $sql = "SELECT * FROM `menu`";
 } else {
