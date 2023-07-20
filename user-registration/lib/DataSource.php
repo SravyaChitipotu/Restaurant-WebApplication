@@ -24,7 +24,7 @@ class DataSource
 
     const USERNAME = 'root';
 
-    const PASSWORD = 'Chinnari@123';
+    const PASSWORD = '';
 
     const DATABASENAME = 'restaurant';
 

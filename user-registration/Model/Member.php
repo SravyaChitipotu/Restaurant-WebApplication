@@ -86,8 +86,7 @@ class Member
         } else {
             if (! empty($_POST["signup-password"])) {
 
-                // PHP's password_hash is the best choice to use to store passwords
-                // do not attempt to do your own encryption, it is not safe
+                
                 $hashedPassword = password_hash($_POST["signup-password"], PASSWORD_DEFAULT);
             }
             $query = 'INSERT INTO tbl_member (username, password, email) VALUES (?, ?, ?)';
@@ -141,8 +140,7 @@ class Member
             $loginPassword = 0;
         }
         if ($loginPassword == 1) {
-            // login sucess so store the member's username in
-            // the session
+           
             session_start();
             $_SESSION["username"] = $memberRecord[0]["username"];
             session_write_close();
